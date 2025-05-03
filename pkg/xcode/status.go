@@ -125,7 +125,7 @@ func toXCode(grpcStatus *status.Status) Code {
 }
 
 func CodeFromError(err error) XCode {
-	err = errors.Cause(err)
+	err = errors.Cause(err) //该方法能够拿到最原始的error
 	if code, ok := err.(XCode); ok {
 		return code
 	}
